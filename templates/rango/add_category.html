@@ -6,6 +6,7 @@
 {% endblock %}
 
 {% block body_block %}
+{% if user.is_authenticated %}
 	<h1>Add a Category</h1>
 	<form id="category_form" method="post" action="{% url 'rango:add_category' %}">
 				{% csrf_token %}
@@ -19,4 +20,5 @@
 				{% endfor %}
 				<input type="submit" name="submit" value="Create Category" />
 	</form>
+{% endif %}
 {% endblock %}
